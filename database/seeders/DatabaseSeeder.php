@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ip;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'gabriel@email.com',
             'password' => bcrypt('password'),
         ]);
+        Ip::factory(5)->create();
     }
 }
