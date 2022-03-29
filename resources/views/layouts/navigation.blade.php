@@ -12,8 +12,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                        {{ __('Accueil') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('liste-adresses')" :active="request()->routeIs('liste-adresses')">
+                        {{ __('Liste des adresses') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('ajouter')" :active="request()->routeIs('ajouter')">
+                        {{ __('Ajouter une adresse') }}
                     </x-nav-link>
                 </div>
             </div>
