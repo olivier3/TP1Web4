@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ip_frauduleuse', function (Blueprint $table) {
+        Schema::create('ips', function (Blueprint $table) {
             $table->id();
             $table->string('ip');
-            $table->timestamps('date_ajout');
+            $table->text('description');
+            $table->string('user');
+            $table->timestamp('date_ajout');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ip_frauduleuse');
+        Schema::dropIfExists('ips');
     }
 };

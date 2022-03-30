@@ -18,6 +18,8 @@ class IpFactory extends Factory
     {
         return [
             'ip' => $this->faker->ipv4(),
+            'description' => $this->faker->text(),
+            'user' => $this->faker->name(),
             'date_ajout' => now(),
         ];
     }

@@ -16,6 +16,8 @@ class Ip extends Model
      */
     protected $fillable = [
         'ip',
+        'description',
+        'user'
     ];
 
     /**
@@ -26,4 +28,9 @@ class Ip extends Model
     protected $casts = [
         'date_ajout' => 'datetime',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

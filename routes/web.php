@@ -17,10 +17,6 @@ Route::get('/', function () {
     return view('index');
 })->middleware(['auth'])->name('index');
 
-Route::get('/ajouter', [\App\Http\Controllers\AjouterController::class, 'index'])->name('ajouter');
-
-Route::get('/liste', [\App\Http\Controllers\ListeAdressesController::class, 'index'])->name('liste-adresses');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
