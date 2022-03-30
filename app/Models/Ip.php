@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Ip extends Model
 {
@@ -32,5 +33,34 @@ class Ip extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    static public function rechercheIp(string $ipARechercher)
+    {
+        if (Ip::where('ip', $ipARechercher)->exists()) {
+
+            $ip = Ip::where('ip', $ipARechercher)->get();
+
+            return $ip;
+
+        } else {
+            $liste = Ip::all();
+
+            $ips = array();
+
+            foreach ($liste as $item) {
+
+                similar_text($ipARechercher, $item->ip, $percent);
+
+                if ($percent >= 80) {
+                    $ips[] = $item;
+                }
+
+                if (count($ips) == 3)
+                    break;
+            }
+
+            return $ips;
+        }
     }
 }
