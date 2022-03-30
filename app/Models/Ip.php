@@ -63,4 +63,9 @@ class Ip extends Model
             return $ips;
         }
     }
+
+    static public function ajoutIpBd(Ip $ipAAjouter)
+    {
+
+    }
 }
