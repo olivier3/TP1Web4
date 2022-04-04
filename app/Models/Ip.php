@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Classe du model pour le adresse Ip.
+ *
+ * @author Olivier Bilodeau
+ */
 class Ip extends Model
 {
     use HasFactory;
@@ -30,11 +35,21 @@ class Ip extends Model
         'date_ajout' => 'datetime',
     ];
 
+    /**
+     * Méthode pour joindre les Ip à un user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Méthode pour faire des recherche dans la base de données
+     * @param string $ipARechercher adresse reçu en paramètre que l'on doit rechercher.
+     * @return array d'adresse trouvé en BD.
+     */
     static public function rechercheIp(string $ipARechercher)
     {
         if (Ip::where('ip', $ipARechercher)->exists()) {

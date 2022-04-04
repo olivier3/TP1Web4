@@ -6,6 +6,11 @@ use App\Models\Ip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Classe de controller pour les Ip.
+ *
+ * @author Olivier Bilodeau.
+ */
 class IpController extends Controller
 {
     public function index()
@@ -13,6 +18,12 @@ class IpController extends Controller
 
     }
 
+    /**
+     * Méthode pour enregister des données dans la BD.
+     *
+     * @param IpFormRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(IpFormRequest $request)
     {
         $attributs = $request->validated();
